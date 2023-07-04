@@ -1,11 +1,20 @@
 import { clsx, type ClassValue } from "clsx";
+import { customAlphabet } from "nanoid";
 import slugifyjs from "slugify";
-import { twMerge } from "tailwind-merge";
-import { env } from "~/env.mjs";
+import { twJoin, twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
+export function cnMerge(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export function cnJoin(...inputs: ClassValue[]) {
+  return twJoin(clsx(inputs));
+}
+
+export const nanoid = customAlphabet(
+  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+  7
+); // 7-character random string
 
 export function formatDate(input: string | number): string {
   const date = new Date(input);
@@ -14,10 +23,6 @@ export function formatDate(input: string | number): string {
     day: "numeric",
     year: "numeric",
   });
-}
-
-export function absoluteUrl(path: string) {
-  return `${env.NEXT_PUBLIC_APP_URL}${path}`;
 }
 
 export function slugify(string: string) {

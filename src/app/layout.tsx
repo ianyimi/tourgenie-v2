@@ -1,15 +1,8 @@
-import { Inter } from "next/font/google";
-
 import "~/styles/globals.css";
+import InteractiveMap from "~/components/InteractiveMap";
 import { siteConfig } from "~/config/site";
-import { cn } from "~/lib/utils";
 
 import { ClientProviders } from "./client-providers";
-
-const fontSans = Inter({
-  weight: ["400", "500", "600", "800", "900"],
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: {
@@ -70,14 +63,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <head />
       <ClientProviders>
-        <body
-          className={cn(
-            "antialiased bg-white text-black dark:bg-stone-900 dark:text-white",
-            fontSans.className
-          )}
-        >
-          <main className="min-h-screen">{children}</main>
-          <footer className="bg-gradient-to-l from-rose-100 to-teal-100 dark:from-rose-100/80 dark:to-teal-100/80 text-stone-900">
+        <body>
+          <div>
+            <InteractiveMap />
+            {children}
+          </div>
+          {/* <footer className="bg-gradient-to-l from-rose-100 to-teal-100 dark:from-rose-100/80 dark:to-teal-100/80 text-stone-900">
             <div className="grid md:flex container md:items-center md:justify-between gap-2 md:gap-4 py-3 md:py-6 text-sm">
               <p>
                 Built by{" "}
@@ -102,7 +93,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </a>
               </p>
             </div>
-          </footer>
+          </footer> */}
         </body>
       </ClientProviders>
     </html>

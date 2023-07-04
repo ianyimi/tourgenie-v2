@@ -4,7 +4,7 @@ import { Code, H2, H4, Large, Lead, P } from "~/components/typography";
 import { buttonVariants } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 import { api } from "~/lib/api/server";
-import { cn } from "~/lib/utils";
+import { cnMerge } from "~/lib/utils";
 
 import HelloFromClient from "./hello-from-client";
 
@@ -19,14 +19,14 @@ export default async function Page() {
         <h1 className="text-4xl md:text-6xl font-black px-6">Giga Stack ✨</h1>
         <Large className="px-6">{`The most Twitter influenced stack you've ever seen`}</Large>
         <div className="flex gap-5 justify-center">
-          <Link href="/dashboard" className={cn(buttonVariants())}>
+          <Link href="/dashboard" className={cnMerge(buttonVariants())}>
             Dashboard
           </Link>
           <a
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
-            className={cn(buttonVariants({ variant: "subtle" }))}
+            className={cnMerge(buttonVariants({ variant: "subtle" }))}
           >
             GitHub
           </a>
@@ -157,14 +157,14 @@ export default async function Page() {
           see project code on GitHub
         </H2>
         <div className="flex gap-5">
-          <Link href="/dashboard" className={cn(buttonVariants())}>
+          <Link href="/dashboard" className={cnMerge(buttonVariants())}>
             Dashboard
           </Link>
           <a
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
-            className={cn(buttonVariants({ variant: "subtle" }))}
+            className={cnMerge(buttonVariants({ variant: "subtle" }))}
           >
             GitHub
           </a>

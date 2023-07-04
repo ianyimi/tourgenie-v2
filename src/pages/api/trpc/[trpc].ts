@@ -5,6 +5,8 @@ import { env } from "~/env.mjs";
 import { createContextInner } from "~/server/api/context";
 import { appRouter } from "~/server/api/root";
 
+export const runtime = "edge";
+
 export default function handler(req: NextRequest) {
   return fetchRequestHandler({
     req,
@@ -27,5 +29,3 @@ export default function handler(req: NextRequest) {
         : undefined,
   });
 }
-
-export const runtime = "experimental-edge";

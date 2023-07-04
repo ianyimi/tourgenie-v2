@@ -7,6 +7,7 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  experimental: { appDir: true, typedRoutes: true },
+  images: { unoptimized: true },
+  experimental: { appDir: true, typedRoutes: true, serverActions: true },
 };
 export default config;

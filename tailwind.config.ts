@@ -5,6 +5,15 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        tgPrimary: "#1a751d",
+        tgSecondary: "#834f0b",
+        tgAccent: "#a6dd97",
+        tgBackgroundLight: "#f4f2fd",
+        tgTextLight: "#272727",
+        tgBackgroundDark: "#272727",
+        tgTextDark: "#f4f2fd",
+      },
       container: {
         center: true,
         padding: "1.5rem",
@@ -28,5 +37,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

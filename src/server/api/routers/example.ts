@@ -1,7 +1,6 @@
 import { desc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { createNoteSchema } from "~/app/dashboard/create-note";
-import { editNoteSchema } from "~/app/dashboard/edit-note";
 import { slugify } from "~/lib/utils";
 import {
   createTRPCRouter,
@@ -30,6 +29,7 @@ export const exampleRouter = createTRPCRouter({
     .input(createNoteSchema)
     .mutation(async ({ input, ctx: { auth, db } }) => {
       const result = await db.insert(notes).values({
+        id: self.crypto.randomUUID(),
         user_id: auth.userId,
         title: input.title,
         text: input.text,
@@ -37,26 +37,26 @@ export const exampleRouter = createTRPCRouter({
       });
       return result;
     }),
-  deleteNote: protectedProcedure
-    .input(
-      z.object({
-        id: z.number(),
-      })
-    )
-    .mutation(async ({ input, ctx: { db } }) => {
-      const result = await db.delete(notes).where(eq(notes.id, input.id));
-      return result;
-    }),
-  editNote: protectedProcedure
-    .input(editNoteSchema)
-    .mutation(async ({ input, ctx: { db } }) => {
-      const result = await db
-        .update(notes)
-        .set({
-          title: input.title,
-          text: input.text,
-        })
-        .where(eq(notes.id, input.id));
-      return result;
-    }),
+  // deleteNote: protectedProcedure
+  //   .input(
+  //     z.object({
+  //       id: z.number(),
+  //     })
+  //   )
+  //   .mutation(async ({ input, ctx: { db } }) => {
+  //     const result = await db.delete(notes).where(eq(notes.id, input.id));
+  //     return result;
+  //   }),
+  // editNote: protectedProcedure
+  //   .input(editNoteSchema)
+  //   .mutation(async ({ input, ctx: { db } }) => {
+  //     const result = await db
+  //       .update(notes)
+  //       .set({
+  //         title: input.title,
+  //         text: input.text,
+  //       })
+  //       .where(eq(notes.id, input.id));
+  //     return result;
+  //   }),
 });

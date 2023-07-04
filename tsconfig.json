@@ -42,7 +42,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "node_modules/react-map-gl/dist/esm/index.d.ts"
   ],
   "exclude": [
     "node_modules"
