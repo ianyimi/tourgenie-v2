@@ -64,10 +64,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <ClientProviders>
         <body>
-          <div>
-            <InteractiveMap />
-            {children}
-          </div>
+          {/* <div> */}
+          <InteractiveMap />
+          {children}
+          {/* </div> */}
           {/* <footer className="bg-gradient-to-l from-rose-100 to-teal-100 dark:from-rose-100/80 dark:to-teal-100/80 text-stone-900">
             <div className="grid md:flex container md:items-center md:justify-between gap-2 md:gap-4 py-3 md:py-6 text-sm">
               <p>

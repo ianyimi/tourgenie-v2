@@ -15,7 +15,7 @@ export function ClientProviders({ children }: PropsWithChildren) {
       <api.Provider>
         <div
           className={cnMerge(
-            "absolute h-full w-full bg-tgBackgroundLight text-tgTextLight transition-colors",
+            "absolute h-full w-full z-[-1] bg-tgBackgroundLight text-tgTextLight transition-colors",
             isDarkMode && "bg-tgBackgroundDark text-tgTextDark"
           )}
         >
